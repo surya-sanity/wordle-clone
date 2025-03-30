@@ -1,4 +1,4 @@
-const ENCRYPTION_KEY = "wordle_secret_key_2024";
+const ENCRYPTION_KEY = "wordle_secret_key_2025";
 
 export const encryptWordle = (word: string): string => {
   return word

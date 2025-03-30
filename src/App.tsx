@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback, memo, useMemo } from "react";
 import wordles from "./wordles.json";
 import { encryptWordle, decryptWordle } from "./utils/encryption";
+import { Analytics } from "@vercel/analytics/react";
 
 const WORDLE_LENGTH = 5;
 const WORDLE_MAX_TRIES = 6;
@@ -227,6 +228,7 @@ function App() {
         </button>
       )}
       {gameState.message && <div className="message">{gameState.message}</div>}
+      <Analytics />
     </main>
   );
 }
