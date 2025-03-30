@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin-bottom: 200px;
 }
 
 .row {
@@ -150,7 +151,7 @@
 
 .message {
   position: absolute;
-  bottom: 100px;
+  bottom: 220px;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.8);
@@ -314,6 +315,7 @@
 
   .board {
     gap: 4px;
+    margin-bottom: 180px;
   }
 
   .logo {
@@ -325,12 +327,6 @@
     top: 60px;
     font-size: 12px;
     padding: 8px 16px;
-  }
-
-  .message {
-    bottom: 80px;
-    font-size: 16px;
-    padding: 12px 24px;
   }
 
   /* Ensure input is visible and focusable on mobile */
@@ -351,6 +347,16 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
+  }
+
+  .keyboard-key {
+    min-width: 35px;
+    height: 50px;
+    font-size: 12px;
+  }
+
+  .keyboard-key.wide-key {
+    min-width: 55px;
   }
 }
 
@@ -386,3 +392,95 @@
     overflow: hidden;
   }
 }
+
+/* Virtual Keyboard Styles */
+.virtual-keyboard {
+  display: none; /* Hide by default */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  padding: 8px;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.keyboard-key {
+  background-color: #818384;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 50px;
+  height: 50px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  aspect-ratio: 1;
+}
+
+.keyboard-key.wide-key {
+  min-width: 75px;
+  aspect-ratio: auto;
+}
+
+.keyboard-key.correct {
+  background-color: #6aa964;
+}
+
+.keyboard-key.misplaced {
+  background-color: #c9b458;
+}
+
+.keyboard-key.incorrect {
+  background-color: #787c7e;
+}
+
+.keyboard-key:active {
+  opacity: 0.8;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .virtual-keyboard {
+    display: flex; /* Show on mobile and tablet */
+  }
+
+  .board {
+    margin-bottom: 180px;
+  }
+
+  .hint-button {
+    top: 120px; /* Position above the board */
+    bottom: auto;
+  }
+
+  .message {
+    top: 160px; /* Position above the hint button */
+    bottom: auto;
+  }
+
+  .keyboard-key {
+    min-width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .keyboard-key.wide-key {
+    min-width: 65px;
+  }
+}
+
+/* Remove the tablet-specific styles since we're handling both mobile and tablet in one media query */
