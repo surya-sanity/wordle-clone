@@ -1,0 +1,300 @@
+{
+  "wordles": [
+    {
+      "wordle": "APPLE",
+      "hint": "A common fruit that keeps the doctor away"
+    },
+    {
+      "wordle": "BEACH",
+      "hint": "A sandy shore by the ocean"
+    },
+    {
+      "wordle": "CLOUD",
+      "hint": "A visible mass of water droplets in the sky"
+    },
+    {
+      "wordle": "DREAM",
+      "hint": "A series of thoughts during sleep"
+    },
+    {
+      "wordle": "EARTH",
+      "hint": "Our home planet"
+    },
+    {
+      "wordle": "FLAME",
+      "hint": "The visible part of a fire"
+    },
+    {
+      "wordle": "GRAPE",
+      "hint": "A small, round fruit that grows in clusters"
+    },
+    {
+      "wordle": "HEART",
+      "hint": "The organ that pumps blood"
+    },
+    {
+      "wordle": "IMAGE",
+      "hint": "A visual representation"
+    },
+    {
+      "wordle": "JUICE",
+      "hint": "Liquid extracted from fruits"
+    },
+    {
+      "wordle": "KNIFE",
+      "hint": "A cutting tool with a sharp blade"
+    },
+    {
+      "wordle": "LEMON",
+      "hint": "A sour yellow citrus fruit"
+    },
+    {
+      "wordle": "MUSIC",
+      "hint": "Art form using sound and rhythm"
+    },
+    {
+      "wordle": "NIGHT",
+      "hint": "The period of darkness between sunset and sunrise"
+    },
+    {
+      "wordle": "OCEAN",
+      "hint": "A large body of salt water"
+    },
+    {
+      "wordle": "PIANO",
+      "hint": "A musical instrument with black and white keys"
+    },
+    {
+      "wordle": "QUEEN",
+      "hint": "A female monarch"
+    },
+    {
+      "wordle": "RADIO",
+      "hint": "A device for receiving broadcast signals"
+    },
+    {
+      "wordle": "SNAKE",
+      "hint": "A legless reptile"
+    },
+    {
+      "wordle": "TABLE",
+      "hint": "A piece of furniture with a flat top"
+    },
+    {
+      "wordle": "UNCLE",
+      "hint": "Your father's or mother's brother"
+    },
+    {
+      "wordle": "VOICE",
+      "hint": "Sound produced by speaking or singing"
+    },
+    {
+      "wordle": "WATER",
+      "hint": "A transparent liquid essential for life"
+    },
+    {
+      "wordle": "YOUTH",
+      "hint": "The period between childhood and adulthood"
+    },
+    {
+      "wordle": "ZEBRA",
+      "hint": "A striped African horse"
+    },
+    {
+      "wordle": "BREAD",
+      "hint": "A staple food made from flour"
+    },
+    {
+      "wordle": "CHAIR",
+      "hint": "A piece of furniture for sitting"
+    },
+    {
+      "wordle": "DANCE",
+      "hint": "Moving rhythmically to music"
+    },
+    {
+      "wordle": "EAGLE",
+      "hint": "A large bird of prey"
+    },
+    {
+      "wordle": "FLUTE",
+      "hint": "A musical instrument you blow into"
+    },
+    {
+      "wordle": "GREEN",
+      "hint": "The color of grass and leaves"
+    },
+    {
+      "wordle": "HOUSE",
+      "hint": "A building where people live"
+    },
+    {
+      "wordle": "IVORY",
+      "hint": "Material from elephant tusks"
+    },
+    {
+      "wordle": "JELLY",
+      "hint": "A sweet spread made from fruit"
+    },
+    {
+      "wordle": "KINGS",
+      "hint": "Male monarchs"
+    },
+    {
+      "wordle": "LIGHT",
+      "hint": "The opposite of darkness"
+    },
+    {
+      "wordle": "MOUSE",
+      "hint": "A small rodent with a long tail"
+    },
+    {
+      "wordle": "NURSE",
+      "hint": "A healthcare professional"
+    },
+    {
+      "wordle": "OLIVE",
+      "hint": "A small green fruit used for oil"
+    },
+    {
+      "wordle": "PHONE",
+      "hint": "A device for making calls"
+    },
+    {
+      "wordle": "QUIET",
+      "hint": "Making little or no noise"
+    },
+    {
+      "wordle": "RADAR",
+      "hint": "A system for detecting objects"
+    },
+    {
+      "wordle": "SMILE",
+      "hint": "A happy facial expression"
+    },
+    {
+      "wordle": "TRAIN",
+      "hint": "A vehicle that runs on tracks"
+    },
+    {
+      "wordle": "UNITE",
+      "hint": "To join together"
+    },
+    {
+      "wordle": "VALUE",
+      "hint": "The worth of something"
+    },
+    {
+      "wordle": "WHEEL",
+      "hint": "A circular object that rotates"
+    },
+    {
+      "wordle": "XEROX",
+      "hint": "A company known for copying machines"
+    },
+    {
+      "wordle": "YIELD",
+      "hint": "To give way or produce"
+    },
+    {
+      "wordle": "ZONES",
+      "hint": "Areas with distinct characteristics"
+    },
+    {
+      "wordle": "BLACK",
+      "hint": "The darkest color"
+    },
+    {
+      "wordle": "CROWN",
+      "hint": "A royal headpiece"
+    },
+    {
+      "wordle": "DREAM",
+      "hint": "A series of thoughts during sleep"
+    },
+    {
+      "wordle": "EARTH",
+      "hint": "Our home planet"
+    },
+    {
+      "wordle": "FLAME",
+      "hint": "The visible part of a fire"
+    },
+    {
+      "wordle": "GRAPE",
+      "hint": "A small, round fruit that grows in clusters"
+    },
+    {
+      "wordle": "HEART",
+      "hint": "The organ that pumps blood"
+    },
+    {
+      "wordle": "IMAGE",
+      "hint": "A visual representation"
+    },
+    {
+      "wordle": "JUICE",
+      "hint": "Liquid extracted from fruits"
+    },
+    {
+      "wordle": "KNIFE",
+      "hint": "A cutting tool with a sharp blade"
+    },
+    {
+      "wordle": "LEMON",
+      "hint": "A sour yellow citrus fruit"
+    },
+    {
+      "wordle": "MUSIC",
+      "hint": "Art form using sound and rhythm"
+    },
+    {
+      "wordle": "NIGHT",
+      "hint": "The period of darkness between sunset and sunrise"
+    },
+    {
+      "wordle": "OCEAN",
+      "hint": "A large body of salt water"
+    },
+    {
+      "wordle": "PIANO",
+      "hint": "A musical instrument with black and white keys"
+    },
+    {
+      "wordle": "QUEEN",
+      "hint": "A female monarch"
+    },
+    {
+      "wordle": "RADIO",
+      "hint": "A device for receiving broadcast signals"
+    },
+    {
+      "wordle": "SNAKE",
+      "hint": "A legless reptile"
+    },
+    {
+      "wordle": "TABLE",
+      "hint": "A piece of furniture with a flat top"
+    },
+    {
+      "wordle": "UNCLE",
+      "hint": "Your father's or mother's brother"
+    },
+    {
+      "wordle": "VOICE",
+      "hint": "Sound produced by speaking or singing"
+    },
+    {
+      "wordle": "WATER",
+      "hint": "A transparent liquid essential for life"
+    },
+    {
+      "wordle": "YOUTH",
+      "hint": "The period between childhood and adulthood"
+    },
+    {
+      "wordle": "ZEBRA",
+      "hint": "A striped African horse"
+    }
+  ]
+}
