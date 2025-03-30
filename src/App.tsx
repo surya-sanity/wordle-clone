@@ -201,7 +201,6 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [handleKeyPress]);
 
-  // Get letter states for keyboard
   const { correctLetters, misplacedLetters, incorrectLetters } = useMemo(() => {
     const correct: string[] = [];
     const misplaced: string[] = [];

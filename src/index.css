@@ -4,7 +4,7 @@
   padding: 0%;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .app {
@@ -42,10 +42,9 @@
   text-transform: uppercase;
   background-color: white;
   transition: background-color 0.2s ease-in-out;
-  transform-style: preserve-3d; /* Ensures smooth 3D rotation */
+  transform-style: preserve-3d;
 }
 
-/* Front and back faces */
 .cell .front,
 .cell .back {
   position: absolute;
@@ -209,8 +208,18 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  animation: fadeIn 0.2s ease-out;
+  z-index: 1001;
+  opacity: 0;
+  animation: overlayFadeIn 0.2s ease-out forwards;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .how-to-play-content {
@@ -226,8 +235,20 @@
   max-width: 400px;
   max-height: 90vh;
   overflow-y: auto;
-  animation: slideIn 0.3s ease-out;
-  z-index: 1000;
+  opacity: 0;
+  z-index: 1002;
+  animation: modalSlideIn 0.3s ease-out forwards;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .close-button {
@@ -266,18 +287,6 @@
   line-height: 1.4;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
-/* Mobile Responsive Styles */
 @media (max-width: 480px) {
   .how-to-play-button {
     width: 32px;
@@ -329,7 +338,6 @@
     padding: 8px 16px;
   }
 
-  /* Ensure input is visible and focusable on mobile */
   input[type="text"] {
     position: fixed;
     top: 0;
@@ -338,10 +346,9 @@
     height: 100%;
     opacity: 0;
     z-index: 1000;
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: 16px;
   }
 
-  /* Prevent scrolling when keyboard is open */
   body.keyboard-open {
     position: fixed;
     width: 100%;
@@ -360,7 +367,6 @@
   }
 }
 
-/* Tablet Responsive Styles */
 @media (min-width: 481px) and (max-width: 768px) {
   .how-to-play-content {
     max-width: 500px;
@@ -372,7 +378,6 @@
     font-size: 22px;
   }
 
-  /* Ensure input is visible and focusable on tablet */
   input[type="text"] {
     position: fixed;
     top: 0;
@@ -381,10 +386,9 @@
     height: 100%;
     opacity: 0;
     z-index: 1000;
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: 16px;
   }
 
-  /* Prevent scrolling when keyboard is open */
   body.keyboard-open {
     position: fixed;
     width: 100%;
@@ -393,9 +397,8 @@
   }
 }
 
-/* Virtual Keyboard Styles */
 .virtual-keyboard {
-  display: none; /* Hide by default */
+  display: none;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -452,10 +455,9 @@
   opacity: 0.8;
 }
 
-/* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .virtual-keyboard {
-    display: flex; /* Show on mobile and tablet */
+    display: flex;
   }
 
   .board {
@@ -463,12 +465,12 @@
   }
 
   .hint-button {
-    top: 120px; /* Position above the board */
+    top: 120px;
     bottom: auto;
   }
 
   .message {
-    top: 160px; /* Position above the hint button */
+    top: 160px;
     bottom: auto;
   }
 
@@ -482,5 +484,3 @@
     min-width: 65px;
   }
 }
-
-/* Remove the tablet-specific styles since we're handling both mobile and tablet in one media query */
