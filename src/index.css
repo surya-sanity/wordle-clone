@@ -4,6 +4,7 @@
   padding: 0%;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
 }
 
 .app {
@@ -158,7 +159,7 @@
   border-radius: 5px;
   font-size: 18px;
   text-align: center;
-  max-width: 80%;
+  max-width: 95%;
   animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -181,8 +182,8 @@
 }
 
 .how-to-play-button {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   border: 2px solid #1a1a1a;
   background: transparent;
@@ -300,11 +301,88 @@
   .how-to-play-content li {
     margin: 8px 0;
   }
+
+  .cell {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .row {
+    gap: 4px;
+  }
+
+  .board {
+    gap: 4px;
+  }
+
+  .logo {
+    font-size: 24px;
+    top: 10px;
+  }
+
+  .hint-text {
+    top: 60px;
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .message {
+    bottom: 80px;
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  /* Ensure input is visible and focusable on mobile */
+  input[type="text"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1000;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  /* Prevent scrolling when keyboard is open */
+  body.keyboard-open {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 /* Tablet Responsive Styles */
 @media (min-width: 481px) and (max-width: 768px) {
   .how-to-play-content {
     max-width: 500px;
+  }
+
+  .cell {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+  }
+
+  /* Ensure input is visible and focusable on tablet */
+  input[type="text"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1000;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  /* Prevent scrolling when keyboard is open */
+  body.keyboard-open {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
 }

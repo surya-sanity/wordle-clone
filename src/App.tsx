@@ -107,6 +107,8 @@ function App() {
     };
   });
 
+  const [currentGuess, setCurrentGuess] = useState("");
+
   useEffect(() => {
     const stateToSave = {
       ...gameState,
@@ -203,8 +205,91 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [handleKeyPress]);
 
+  // Add keyboard state handling
+  useEffect(() => {
+    const handleFocus = () => {
+      document.body.classList.add("keyboard-open");
+    };
+
+    const handleBlur = () => {
+      document.body.classList.remove("keyboard-open");
+    };
+
+    const input = document.querySelector('input[type="text"]');
+    if (input) {
+      input.addEventListener("focus", handleFocus);
+      input.addEventListener("blur", handleBlur);
+    }
+
+    return () => {
+      if (input) {
+        input.removeEventListener("focus", handleFocus);
+        input.removeEventListener("blur", handleBlur);
+      }
+    };
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.toLowerCase();
+    if (value.length <= WORDLE_LENGTH && /^[a-z]*$/.test(value)) {
+      setCurrentGuess(value);
+    }
+  };
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && currentGuess.length === WORDLE_LENGTH) {
+      const updatedGuesses = gameState.guesses.map((guess, idx) => {
+        if (idx === gameState.currentGuess) {
+          return {
+            ...guess,
+            value: currentGuess,
+            isValidated: true,
+          };
+        }
+        return guess;
+      });
+
+      const isCorrect =
+        currentGuess === gameState.wordleData.wordle.toLowerCase();
+      const nextGuess = gameState.currentGuess + 1;
+      const isLastAttempt = nextGuess >= WORDLE_MAX_TRIES;
+
+      setGameState((prev) => ({
+        ...prev,
+        guesses: updatedGuesses,
+        currentGuess: isCorrect ? prev.currentGuess : nextGuess,
+        isGameover: isCorrect || isLastAttempt,
+        message: isCorrect
+          ? "Congratulations, You won, Comeback tomorrow for a new wordle 😉"
+          : isLastAttempt
+          ? `Game Over! The wordle of the day is ${prev.wordleData.wordle}`
+          : "",
+      }));
+      setCurrentGuess("");
+    }
+  };
+
   return (
     <main className="app">
+      <input
+        type="text"
+        value={currentGuess}
+        onChange={handleInputChange}
+        onKeyDown={handleInputKeyDown}
+        autoFocus
+        maxLength={WORDLE_LENGTH}
+        inputMode="text"
+        pattern="[A-Za-z]*"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          opacity: 0,
+          zIndex: 1000,
+        }}
+      />
       <div className="logo">WORDLE</div>
       <HowToPlay />
       {gameState.showHint && !gameState.isGameover && (
