@@ -1,73 +1,12 @@
-import { useEffect, useState, useCallback, memo, useMemo } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import wordles from "./wordles.json";
 import { encryptWordle, decryptWordle } from "./utils/encryption";
 import { Analytics } from "@vercel/analytics/react";
 import VirtualKeyboard from "./components/VirtualKeyboard";
-
-const WORDLE_LENGTH = 5;
-const WORDLE_MAX_TRIES = 6;
-const STORAGE_KEY = "wordle_game_state";
-
-interface Guess {
-  isValidated: boolean;
-  value: string;
-}
-
-interface GameState {
-  wordleData: {
-    wordle: string;
-    encryptedWordle: string;
-    hint: string;
-  };
-  guesses: Guess[];
-  currentGuess: number;
-  isGameover: boolean;
-  showHint: boolean;
-  lastPlayedDate: string;
-  message: string;
-}
-
-const HowToPlay = memo(() => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  return (
-    <div className="how-to-play">
-      <button
-        className="how-to-play-button"
-        onClick={() => setIsVisible(!isVisible)}
-        aria-label="How to Play"
-      >
-        ?
-      </button>
-      {isVisible && (
-        <>
-          <div
-            className="how-to-play-overlay"
-            onClick={() => setIsVisible(false)}
-          />
-          <div className="how-to-play-content">
-            <button
-              className="close-button"
-              onClick={() => setIsVisible(false)}
-              aria-label="Close"
-            >
-              ×
-            </button>
-            <h3>How to Play</h3>
-            <ul>
-              <li>Guess the 5-letter word</li>
-              <li>6 attempts allowed</li>
-              <li>Green: Correct letter & position</li>
-              <li>Yellow: Correct letter, wrong position</li>
-              <li>Gray: Letter not in word</li>
-              <li>New word daily at midnight</li>
-            </ul>
-          </div>
-        </>
-      )}
-    </div>
-  );
-});
+import HowToPlay from "./components/HowToPlay";
+import Row from "./components/Row";
+import { GameState } from "./types/game";
+import { WORDLE_LENGTH, WORDLE_MAX_TRIES, STORAGE_KEY } from "./constants/game";
 
 function App() {
   const [gameState, setGameState] = useState<GameState>(() => {
@@ -251,75 +190,16 @@ function App() {
           Show Hint
         </button>
       )}
-      {gameState.message && <div className="message">{gameState.message}</div>}
       <VirtualKeyboard
         onKeyPress={handleKeyPress}
         correctLetters={correctLetters}
         misplacedLetters={misplacedLetters}
         incorrectLetters={incorrectLetters}
       />
+      {gameState.message && <div className="message">{gameState.message}</div>}
       <Analytics />
     </main>
   );
 }
-
-const Cell = memo(
-  ({
-    char,
-    isValidated,
-    isCorrect,
-    isMisplaced,
-    charIdx,
-  }: {
-    char: string | null;
-    isValidated: boolean;
-    isCorrect: boolean;
-    isMisplaced: boolean;
-    charIdx: number;
-  }) => {
-    const className = useMemo(() => {
-      if (!isValidated) return "cell";
-      return `cell ${
-        isCorrect ? "correct" : isMisplaced ? "misplaced" : "incorrect"
-      } validate`;
-    }, [isValidated, isCorrect, isMisplaced]);
-
-    return (
-      <div
-        className={className}
-        key={charIdx.toString()}
-        data-char={char?.toUpperCase()}
-        style={{ animationDelay: `${charIdx * 0.1}s` }}
-      >
-        <div className="front">{char?.toUpperCase()}</div>
-        <div className="back">{char?.toUpperCase()}</div>
-      </div>
-    );
-  }
-);
-
-const Row = memo(({ guess, wordle }: { guess: Guess; wordle: string }) => {
-  const cells = useMemo(() => {
-    return Array.from({ length: WORDLE_LENGTH }).map((_, charIdx) => {
-      const char = guess.value !== "" ? guess.value[charIdx] : null;
-      const { isValidated } = guess;
-      const isCorrect = char === wordle[charIdx];
-      const isMisplaced = Boolean(char && wordle.includes(char));
-
-      return (
-        <Cell
-          key={charIdx}
-          char={char}
-          isValidated={isValidated}
-          isCorrect={isCorrect}
-          isMisplaced={isMisplaced}
-          charIdx={charIdx}
-        />
-      );
-    });
-  }, [guess, wordle]);
-
-  return <div className="row">{cells}</div>;
-});
 
 export default App;
